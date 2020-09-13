@@ -1,6 +1,8 @@
 import Express from 'express';
 import Joi from 'joi';
 
+import ErrorParser from '../helper/error_parser';
+
 import HelloCore from '../core/hello_core';
 
 class HelloRoute {
@@ -17,7 +19,7 @@ class HelloRoute {
         }).unknown());
 
         if(paramError) {
-            return res.status(400).json(paramError)
+            return res.status(400).json(ErrorParser.handleJoiError(paramError))
         }
 
         this.helloCore.sayHello({
