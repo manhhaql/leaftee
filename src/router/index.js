@@ -5,10 +5,12 @@ import BodyParser from 'body-parser';
 import Path from 'path';
 
 import HelloRoute from './hello_route';
+import SizeRoute from './size_route';
 
 class AppRoute {
     constructor() {
         this.helloRoute = new HelloRoute();
+        this.sizeRoute = new SizeRoute();
 
         this.express = Express();
         this.middleware();
@@ -27,6 +29,7 @@ class AppRoute {
     routes() {
         this.express.use('/api-docs', Express.static(Path.join(__dirname, '../../', '/swagger')));
         this.express.use('/hello', this.helloRoute.router);
+        this.express.use('/size', this.sizeRoute.router);
     };
 };
 

@@ -4,27 +4,27 @@ import Joi from 'joi';
 import ErrorParser from '../helper/error_parser';
 import * as responseCode from '../constant/response_code';
 
-import HelloCore from '../core/hello_core';
+import SizeCore from '../core/size_core';
 
-class HelloRoute {
+class SizeRoute {
     constructor() {
-        this.helloCore = new HelloCore();
+        this.sizeCore = new SizeCore();
 
         this.router = Express.Router();
         this.routes();
     };
 
-    hello(req, res, next) {
+    get_size(req, res, next) {
         const {error: paramError, value: paramValues} = Joi.validate(req.query, Joi.object().keys({
-            name: Joi.string().min(2).max(10)
+            id: Joi.number().integer().min(1)
         }).unknown());
 
         if(paramError) {
             return res.status(400).json(ErrorParser.handleJoiError(paramError))
         }
 
-        this.helloCore.sayHello({
-            name: paramValues.name
+        this.sizeCore.getSize({
+            id: paramValues.id
         }).then((result) => {
             return res.status(200).json({
                 code: responseCode.SUCCESS,
@@ -36,8 +36,8 @@ class HelloRoute {
     };
 
     routes() {
-        this.router.get('/', this.hello.bind(this));
+        this.router.get('/', this.get_size.bind(this));
     };
 };
 
-export default HelloRoute;
+export default SizeRoute;

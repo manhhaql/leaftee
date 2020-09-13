@@ -7,6 +7,12 @@ class ErrorParser {
             error: error.details[0].message
         }
     }
+    static handleMysqlError(error) {
+        return {
+            code: responseCode.ERR_MYSQL,
+            error: error.sqlMessage
+        }
+    }
 };
 
 export default ErrorParser;

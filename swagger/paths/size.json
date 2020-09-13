@@ -1,0 +1,72 @@
+{
+    "get": {
+        "get":{
+            "tags":[
+               "size"
+            ],
+            "summary":"Initial API",
+            "description":"",
+            "operationId":"size",
+            "consumes":[
+               "multipart/form-data"
+            ],
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"id",
+                  "in":"query",
+                  "description": "Size id",
+                  "type":"integer",
+                  "format":"int32"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"OK",
+                  "schema":{
+                    "properties": {
+                        "code": {
+                            "$ref": "../definitions/common.json#/StatusCode"
+                        },
+                        "error": {
+                            "$ref": "../definitions/common.json#/ErrorObject"
+                        },
+                        "data": {
+                            "$ref": "#/definitions/Size"
+                        }
+                    }
+                  }
+               },
+               "400":{
+                  "description":"Invalid input value"
+               },
+               "404":{
+                  "description":"Data not found"
+               }
+            }
+        }
+    },
+    "definitions": {
+        "Size": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties":{
+                    "id": {
+                        "name": "id",
+                        "type":"integer",
+                        "format": "int32",
+                        "example": "1"
+                    },
+                    "name": {
+                        "name": "name",
+                        "type":"string",
+                        "example": "xs"
+                    }
+                }
+            }
+        }
+    }
+}

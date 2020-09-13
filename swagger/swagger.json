@@ -11,6 +11,10 @@
         {
             "name": "hello",
             "description": "Initial API"
+        },
+        {
+            "name": "size",
+            "description": "Size API"
         }
         
     ],
@@ -28,6 +32,9 @@
     "paths": {
         "/hello": {
             "$ref":"paths/hello.json#/hello"
+        },
+        "/size": {
+            "$ref":"paths/size.json#/get"
         }
     }
 }
