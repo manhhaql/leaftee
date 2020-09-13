@@ -2,6 +2,7 @@ import Express from 'express';
 import Cors from 'cors';
 import Morgan from 'morgan';
 import BodyParser from 'body-parser';
+import Path from 'path';
 
 import HelloRoute from './hello_route';
 
@@ -24,7 +25,8 @@ class AppRoute {
     };
 
     routes() {
-        this.express.use('/api/hello', this.helloRoute.router);
+        this.express.use('/api-docs', Express.static(Path.join(__dirname, '../../', '/swagger')));
+        this.express.use('/hello', this.helloRoute.router);
     };
 };
 

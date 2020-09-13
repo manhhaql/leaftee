@@ -1,0 +1,33 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Leaftee API",
+        "description": "API document"
+    },
+    "host":"localhost:3000",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "hello",
+            "description": "Initial API"
+        }
+        
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json",
+        "application/x-www-form-urlencoded"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/hello": {
+            "$ref":"paths/hello.json#/hello"
+        }
+    }
+}
