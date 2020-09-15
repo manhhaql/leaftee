@@ -13,8 +13,8 @@
             "description": "Initial API"
         },
         {
-            "name": "size",
-            "description": "Size API"
+            "name": "properties",
+            "description": "Sizes, colors, types etc..."
         }
         
     ],
@@ -33,8 +33,14 @@
         "/hello": {
             "$ref":"paths/hello.json#/hello"
         },
-        "/size": {
-            "$ref":"paths/size.json#/get"
+        "/properties/size": {
+            "$ref":"paths/properties.json#/size"
+        },
+        "/properties/type": {
+            "$ref":"paths/properties.json#/type"
+        },
+        "/properties/color": {
+            "$ref":"paths/properties.json#/color"
         }
     }
 }

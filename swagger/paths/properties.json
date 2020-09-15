@@ -1,0 +1,208 @@
+{
+   "size": {
+      "get": {
+         "tags": [
+            "properties"
+         ],
+         "summary": "Get sizes API",
+         "description": "",
+         "operationId": "size",
+         "consumes": [
+            "multipart/form-data"
+         ],
+         "produces": [
+            "application/json"
+         ],
+         "parameters": [
+            {
+               "name": "id",
+               "in": "query",
+               "description": "Size id",
+               "type": "integer",
+               "format": "int32"
+            }
+         ],
+         "responses": {
+            "200": {
+               "description": "OK",
+               "schema": {
+                  "properties": {
+                     "code": {
+                        "$ref": "../definitions/common.json#/StatusCode"
+                     },
+                     "error": {
+                        "$ref": "../definitions/common.json#/ErrorObject"
+                     },
+                     "data": {
+                        "$ref": "#/definitions/Size"
+                     }
+                  }
+               }
+            },
+            "400": {
+               "description": "Invalid input value"
+            },
+            "404": {
+               "description": "Data not found"
+            }
+         }
+      }
+   },
+   "type": {
+      "get": {
+         "tags": [
+            "properties"
+         ],
+         "summary": "Get types API",
+         "description": "",
+         "operationId": "type",
+         "consumes": [
+            "multipart/form-data"
+         ],
+         "produces": [
+            "application/json"
+         ],
+         "parameters": [
+            {
+               "name": "id",
+               "in": "query",
+               "description": "Type id",
+               "type": "integer",
+               "format": "int32"
+            }
+         ],
+         "responses": {
+            "200": {
+               "description": "OK",
+               "schema": {
+                  "properties": {
+                     "code": {
+                        "$ref": "../definitions/common.json#/StatusCode"
+                     },
+                     "error": {
+                        "$ref": "../definitions/common.json#/ErrorObject"
+                     },
+                     "data": {
+                        "$ref": "#/definitions/Type"
+                     }
+                  }
+               }
+            },
+            "400": {
+               "description": "Invalid input value"
+            },
+            "404": {
+               "description": "Data not found"
+            }
+         }
+      }
+   },
+   "color": {
+      "get": {
+         "tags": [
+            "properties"
+         ],
+         "summary": "Get colors API",
+         "description": "",
+         "operationId": "color",
+         "consumes": [
+            "multipart/form-data"
+         ],
+         "produces": [
+            "application/json"
+         ],
+         "parameters": [
+            {
+               "name": "id",
+               "in": "query",
+               "description": "Color id",
+               "type": "integer",
+               "format": "int32"
+            }
+         ],
+         "responses": {
+            "200": {
+               "description": "OK",
+               "schema": {
+                  "properties": {
+                     "code": {
+                        "$ref": "../definitions/common.json#/StatusCode"
+                     },
+                     "error": {
+                        "$ref": "../definitions/common.json#/ErrorObject"
+                     },
+                     "data": {
+                        "$ref": "#/definitions/Color"
+                     }
+                  }
+               }
+            },
+            "400": {
+               "description": "Invalid input value"
+            },
+            "404": {
+               "description": "Data not found"
+            }
+         }
+      }
+   },
+   "definitions": {
+      "Size": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "id": {
+                  "name": "id",
+                  "type": "integer",
+                  "format": "int32",
+                  "example": "1"
+               },
+               "name": {
+                  "name": "name",
+                  "type": "string",
+                  "example": "xs"
+               }
+            }
+         }
+      },
+      "Type": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "id": {
+                  "name": "id",
+                  "type": "integer",
+                  "format": "int32",
+                  "example": "1"
+               },
+               "name": {
+                  "name": "name",
+                  "type": "string",
+                  "example": "longsleeve"
+               }
+            }
+         }
+      },
+      "Color": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "id": {
+                  "name": "id",
+                  "type": "integer",
+                  "format": "int32",
+                  "example": "1"
+               },
+               "name": {
+                  "name": "name",
+                  "type": "string",
+                  "example": "red"
+               }
+            }
+         }
+      }
+   }
+}
