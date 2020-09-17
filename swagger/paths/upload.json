@@ -1,0 +1,76 @@
+{
+    "file": {
+        "post":{
+            "tags":[
+               "upload"
+            ],
+            "summary":"Upload API",
+            "description":"",
+            "operationId":"upload",
+            "consumes":[
+               "multipart/form-data"
+            ],
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+                {
+                    "name":"product_sku_id",
+                    "in":"formData",
+                    "description": "Sku ID",
+                    "type":"integer",
+                    "format": "int32",
+                    "required": true
+                 },
+               {
+                  "name":"file",
+                  "in":"formData",
+                  "description": "File to upload",
+                  "type":"file"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"OK",
+                  "schema":{
+                    "properties": {
+                        "code": {
+                            "$ref": "../definitions/common.json#/StatusCode"
+                        },
+                        "error": {
+                            "$ref": "../definitions/common.json#/ErrorObject"
+                        },
+                        "data": {
+                            "$ref": "#/definitions/Upload"
+                        }
+                    }
+                  }
+               },
+               "400":{
+                  "description":"Invalid input value"
+               },
+               "404":{
+                  "description":"Data not found"
+               }
+            }
+        }
+    },
+    "definitions": {
+        "Upload": {
+            "type": "object",
+            "properties":{
+                "product_sku_id": {
+                    "name": "product_sku_id",
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 1
+                },
+                "url": {
+                    "name": "url",
+                    "type": "string",
+                    "example": "https://url/to/image.jpeg"
+                }
+            }
+        }
+    }
+}

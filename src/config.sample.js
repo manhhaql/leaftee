@@ -12,6 +12,16 @@ export default {
         database: "",
         connectionLimit: 100
     },
+    firebase: {
+        apiKey: "",
+        authDomain: "",
+        databaseURL: "",
+        projectId: "leaftee",
+        storageBucket: "",
+        messagingSenderId: "",
+        appId: "",
+        measurementId: ""
+    },
     redis: {
         host: "127.0.0.1",
         port: "6379",

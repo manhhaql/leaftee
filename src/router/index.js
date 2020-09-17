@@ -6,11 +6,13 @@ import Path from 'path';
 
 import HelloRoute from './hello_route';
 import PropertiesRoute from './properties_route';
+import UploadRoute from './upload_route';
 
 class AppRoute {
     constructor() {
         this.helloRoute = new HelloRoute();
-        this.propertiesRoute = new PropertiesRoute();
+        this.propertiesRoute = new PropertiesRoute(); 
+        this.uploadRoute = new UploadRoute(); 
 
         this.express = Express();
         this.middleware();
@@ -30,6 +32,7 @@ class AppRoute {
         this.express.use('/api-docs', Express.static(Path.join(__dirname, '../../', '/swagger')));
         this.express.use('/hello', this.helloRoute.router);
         this.express.use('/properties', this.propertiesRoute.router);
+        this.express.use('/upload', this.uploadRoute.router);
     };
 };
 

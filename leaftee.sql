@@ -126,14 +126,14 @@ drop table if exists product_properties;
 create table if not exists product_properties (
 	sku_id int auto_increment,
     product_id int not null,
-    type_id tinyint not null;
-    size_id tinyint not null;
-    color_id tinyint not null;
-    stock tinyint default 0;
-    price int default 0;
+    type_id int not null,
+    size_id int not null,
+    color_id int not null,
+    stock int default 0,
+    price int default 0,
     created_at timestamp null default null,
     updated_at timestamp null default null,
-    primary key(id),
+    primary key(sku_id),
 	foreign key (product_id) REFERENCES products(id) on update cascade on delete restrict,
 	foreign key (type_id) REFERENCES types(id) on update cascade on delete restrict,
 	foreign key (size_id) REFERENCES sizes(id) on update cascade on delete restrict,
@@ -164,7 +164,7 @@ drop table if exists product_images;
 create table if not exists product_images (
 	id int auto_increment,
     product_sku_id int not null,
-	url text collate utf8_unicode_ci default null;
+	url text collate utf8_unicode_ci default null,
     created_at timestamp null default null,
     updated_at timestamp null default null,
     primary key(id),
